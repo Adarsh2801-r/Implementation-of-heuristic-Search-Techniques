@@ -16,6 +16,14 @@ struct State{
          lvl=c;
          quadrant=d;
 	}
+	bool operator==(const State& a) const
+   {
+    return (x == a.x && y == a.y && lvl==a.lvl && quadrant == a.quadrant);
+   }
+   bool operator!=(const State& a) const
+   {
+    return (x != a.x || y != a.y || lvl!=a.lvl || quadrant != a.quadrant);
+   }
 };
 
 int calculate_heuristic(map<int,State>&mp,map<int,State>&goal){
@@ -58,10 +66,10 @@ int calculate_heuristic(map<int,State>&mp,map<int,State>&goal){
 		else if(goal[i].lvl==1){
 			val/=3;
 		}
-
 		sum += (val+delta);
 
 	}
+  
 	return sum;
 }
 
@@ -196,7 +204,7 @@ pair<int,map<int,State>> jmp(vector<vector<int>>&dart_board,map<int,State>&curr,
 	  hval = calculate_heuristic(tmp,goal);
 	  if(hval<mn){
 	  	mn=hval;
-	  	ans=curr;
+	  	ans=tmp;
 	  }
 
 
@@ -212,7 +220,7 @@ pair<int,map<int,State>> jmp(vector<vector<int>>&dart_board,map<int,State>&curr,
 	  hval = calculate_heuristic(tmp,goal);
 	  if(hval<mn){
 	  	mn=hval;
-	  	ans=curr;
+	  	ans=tmp;
 	  }
 
 
@@ -231,7 +239,7 @@ pair<int,map<int,State>> jmp(vector<vector<int>>&dart_board,map<int,State>&curr,
 	  hval = calculate_heuristic(tmp,goal);
 	  if(hval<mn){
 	  	mn=hval;
-	  	ans=curr;
+	  	ans=tmp;
 	  }
 	  /* lvl-1 <--> lvl-0 */
 	  tmp=curr;
@@ -244,7 +252,7 @@ pair<int,map<int,State>> jmp(vector<vector<int>>&dart_board,map<int,State>&curr,
 	  hval = calculate_heuristic(tmp,goal);
 	  if(hval<mn){
 	  	mn=hval;
-	  	ans=curr;
+	  	ans=tmp;
 	  }
 
 
@@ -260,7 +268,7 @@ pair<int,map<int,State>> jmp(vector<vector<int>>&dart_board,map<int,State>&curr,
 	  hval = calculate_heuristic(tmp,goal);
 	  if(hval<mn){
 	  	mn=hval;
-	  	ans=curr;
+	  	ans=tmp;
 	  }
 
 	  /* lvl-1 <--> lvl-0 */
@@ -274,7 +282,7 @@ pair<int,map<int,State>> jmp(vector<vector<int>>&dart_board,map<int,State>&curr,
 	  hval = calculate_heuristic(tmp,goal);
 	  if(hval<mn){
 	  	mn=hval;
-	  	ans=curr;
+	  	ans=tmp;
 	  }
 
 	/*quadrant-4*/
@@ -289,7 +297,7 @@ pair<int,map<int,State>> jmp(vector<vector<int>>&dart_board,map<int,State>&curr,
 	  hval = calculate_heuristic(tmp,goal);
 	  if(hval<mn){
 	  	mn=hval;
-	  	ans=curr;
+	  	ans=tmp;
 	  }
 
 	  /* lvl-1 <--> lvl-0 */
@@ -303,22 +311,25 @@ pair<int,map<int,State>> jmp(vector<vector<int>>&dart_board,map<int,State>&curr,
 	  hval = calculate_heuristic(tmp,goal);
 	  if(hval<mn){
 	  	mn=hval;
-	  	ans=curr;
+	  	ans=tmp;
 	  }
 
 	
 	return {mn,ans};
 }
 
+bool comp(pair<int,map<int,State>>&a,pair<int,map<int,State>>&b){
+    return a.first<b.first;
+}
 
 int main(){
 	vector<vector<int>> dart_board {
-		{8,-1,-1,-1,-1,12},
-		{-1,10,-1,-1,6,-1},
-		{-1,-1,3,2,-1,-1},
-		{-1,-1,9,7,-1,-1},
-		{-1,4,-1,-1,1,-1},
-		{11,-1,-1,-1,-1,5},
+		{8,0,0,0,0,12},
+		{0,10,0,0,6,0},
+		{0,0,3,2,0,0},
+		{0,0,9,7,0,0},
+		{0,4,0,0,1,0},
+		{11,0,0,0,0,5},
 	};
 	map<int,State>mp;
 	mp[dart_board[0][0]]=State(0,0,2,1);
@@ -350,21 +361,33 @@ int main(){
 
     map<vector<vector<int>>,vector<vector<vector<int>>>>adj;
     map<int,State>curr = mp;
-    int curr_val = calculate_heuristic(mp,goal);
-    cout<<curr_val<<endl;
+    int curr_val = calculate_heuristic(curr,goal);
+    map<map<int,State>, int> vis;
+    std::map<int, State> prev;
+      std::vector<vector<int>> tmp(6,vector<int>(6));
+    tmp=dart_board;
+   cout<<curr_val<<endl;
     while(curr!=goal){
+    	for(int i=0;i<6;i++){
+        	for(int j=0;j<6;j++){
+        		cout<<dart_board[i][j]<<" ";
+        	}
+        	cout<<endl;
+        }
     	vector<pair<int,map<int,State>>>succ;
     	succ.push_back(rotate_clockwise(dart_board,curr,goal));
     	succ.push_back(rotate_anticlockwise(dart_board,curr,goal));
     	succ.push_back(jmp(dart_board,curr,goal));
-    	sort(succ.begin(),succ.end());
+    	sort(succ.begin(),succ.end(),comp);
     	int hval = succ[0].first;
+    	cout<<curr_val<<","<<hval<<endl;
     	if(hval==0){
     		printf("\nGOAL STATE REACHED\n");
     		break;
     	}
     	else{
     		if(hval<=curr_val){
+    			cout<<hval<<endl;
     			curr=succ[0].second;
     			curr_val=hval;
     		}
@@ -374,6 +397,30 @@ int main(){
 
     		}
     	}
+    	
+        for(auto i:curr){
+        	tmp[i.second.x][i.second.y]=i.first;
+            dart_board[i.second.x][i.second.y]=i.first;
+    		cout<<i.first<<"===>";
+    		cout<<i.second.x<<","<<i.second.y<<","<<i.second.lvl<<","<<i.second.quadrant<<endl;
+
+  
+
+        }
+        for(int i=0;i<6;i++){
+        	for(int j=0;j<6;j++){
+        		cout<<tmp[i][j]<<" ";
+        	}
+        	cout<<endl;
+        }
+          
+        cout<<"==============="<<endl;
+        cout<<"==============="<<endl;
+    	if(curr==prev){
+    		break;
+    	}
+    	prev=curr;
+    	
 
     }
 	return 0;
