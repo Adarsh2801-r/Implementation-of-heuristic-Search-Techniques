@@ -366,8 +366,10 @@ int main(){
     std::map<int, State> prev;
       std::vector<vector<int>> tmp(6,vector<int>(6));
     tmp=dart_board;
-   cout<<curr_val<<endl;
+    int cont=0;
+    int prev_val;
     while(curr!=goal){
+    	cout<<"STATE H_VAL = "<<curr_val<<endl;
     	for(int i=0;i<6;i++){
         	for(int j=0;j<6;j++){
         		cout<<dart_board[i][j]<<" ";
@@ -380,14 +382,12 @@ int main(){
     	succ.push_back(jmp(dart_board,curr,goal));
     	sort(succ.begin(),succ.end(),comp);
     	int hval = succ[0].first;
-    	cout<<curr_val<<","<<hval<<endl;
     	if(hval==0){
     		printf("\nGOAL STATE REACHED\n");
     		break;
     	}
     	else{
     		if(hval<=curr_val){
-    			cout<<hval<<endl;
     			curr=succ[0].second;
     			curr_val=hval;
     		}
@@ -401,26 +401,22 @@ int main(){
         for(auto i:curr){
         	tmp[i.second.x][i.second.y]=i.first;
             dart_board[i.second.x][i.second.y]=i.first;
-    		cout<<i.first<<"===>";
-    		cout<<i.second.x<<","<<i.second.y<<","<<i.second.lvl<<","<<i.second.quadrant<<endl;
-
-  
-
         }
-        for(int i=0;i<6;i++){
-        	for(int j=0;j<6;j++){
-        		cout<<tmp[i][j]<<" ";
+       
+        cout<<"==============="<<endl;
+        cout<<"==============="<<endl;
+        if(curr_val==prev_val){
+        	cont++;
+        	if(cont==6){
+        		cout<<"PLATEAU detected"<<endl;
+        		break;
         	}
-        	cout<<endl;
         }
-          
-        cout<<"==============="<<endl;
-        cout<<"==============="<<endl;
     	if(curr==prev){
     		break;
     	}
     	prev=curr;
-    	
+    	prev_val=curr_val;
 
     }
 	return 0;
