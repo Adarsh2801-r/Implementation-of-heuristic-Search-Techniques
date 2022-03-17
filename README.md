@@ -2,4 +2,4 @@
 
 ## Steepest-Ascent Hill Climbing
 
-## A* heuristic
+## A* algorithm
