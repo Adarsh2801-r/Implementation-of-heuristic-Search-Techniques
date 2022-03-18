@@ -25,9 +25,9 @@ Sequence of states obtained : </br>
 ![image](https://user-images.githubusercontent.com/66625110/158945352-8ec24531-7e02-4dee-a53e-ac5e45984d67.png)
 ![image](https://user-images.githubusercontent.com/66625110/158945353-ca625b5a-8fc9-45fa-a28c-012a6f28c29a.png)
 
-
-
-
+**Observations:**</br>
+We see that after few states, the cost of subsequent states is remaining constant. This is called a PLATAEU REGION. A plateau is the flat area of the search space in which all the neighbor states of the current state contains the same value, because of this algorithm does not find any best direction to move. </br>
+Possible solution: The solution for the plateau is to take big steps or very little steps while searching, to solve the problem. Randomly select a state which is far away from the current state so it is possible that the algorithm could find non-plateau region.
 
 
 ## A* algorithm
