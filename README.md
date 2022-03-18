@@ -43,4 +43,8 @@ Ingenuity’s inputs. Ingenuity flies across a couple of meters and gives an aer
 Perseverance (FIG A) and based on these inputs the rover takes its next step. Design a communication
 channel between Ingenuity and Perseverance where the copter sends the expanded states from the
 initial position of the rover, the rover sends back the decision it takes on the expanded states and so on.
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/66625110/158946135-9cfd3654-d613-4d24-b805-0b33442c10dd.png">
+</p>
+
 
