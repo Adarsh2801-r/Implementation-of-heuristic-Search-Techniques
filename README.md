@@ -51,5 +51,5 @@ initial position of the rover, the rover sends back the decision it takes on the
 Each checkpoint in aerial topography is represented as a node in a weighted graph. The weighted graph is represented using a 14 X 14 adjacency matrix.
 
 **Heuristic evaluation function used :** </br>
-Rover wishes to reach the crater efficiently , i.e with as minimum cost as possible. The heuristic function h(n) for each node n gives the shortest path to move from node n to destination. The heuristic function under-estimates the cost to reach goal state and hence is guaranteed to give an optimal solution. The heuristic function in A* also takes into account the cost to reach a particular node from source g(n) .
+Rover wishes to reach the crater efficiently , i.e with as minimum cost as possible. The heuristic function h(n) for each node n gives the shortest path to move from node n to destination. The heuristic function under-estimates the cost to reach goal state and hence is guaranteed to give an optimal solution. The heuristic function in A* also takes into account the cost to reach a particular node from source g(n) . </br>
        Overall heuristic function f(n) = g(n) + h(n)
