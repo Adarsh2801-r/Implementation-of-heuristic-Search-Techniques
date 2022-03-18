@@ -20,7 +20,11 @@ We wish to reach the goal state efficiently , i.e with as minimum moves as possi
 
 **Results:** </br>
 Sequence of states obtained : </br>
-![image](https://user-images.githubusercontent.com/66625110/158945026-5086f404-f2c8-43a5-b6de-66925b50d2b9.png)   ![image](https://user-images.githubusercontent.com/66625110/158945070-a215c4f5-3f70-4f3f-a62d-9314b624dcc5.png) ![image](https://user-images.githubusercontent.com/66625110/158945180-b65c2611-7462-410d-9e94-66cb795f347b.png)
+![image](https://user-images.githubusercontent.com/66625110/158945026-5086f404-f2c8-43a5-b6de-66925b50d2b9.png)   ![image](https://user-images.githubusercontent.com/66625110/158945070-a215c4f5-3f70-4f3f-a62d-9314b624dcc5.png) ![image](https://user-images.githubusercontent.com/66625110/158945180-b65c2611-7462-410d-9e94-66cb795f347b.png) ![image](https://user-images.githubusercontent.com/66625110/158945286-7ce4466b-7846-4d38-9f40-903e4fbe1464.png)
+![image](https://user-images.githubusercontent.com/66625110/158945336-4cebbf23-307e-4360-be9d-2e2c41d6b868.png)
+![image](https://user-images.githubusercontent.com/66625110/158945352-8ec24531-7e02-4dee-a53e-ac5e45984d67.png)
+![image](https://user-images.githubusercontent.com/66625110/158945353-ca625b5a-8fc9-45fa-a28c-012a6f28c29a.png)
+
 
 
 
