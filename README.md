@@ -16,6 +16,14 @@ The dart is represented as 2-D array and each sector tile in dart board is repre
 where x = row_number , y = column_number, lvl = depth of concentric circles from center , quadrant = qudrant in which sector is present .
 
 **Heuristic evaluation function used :** </br>
-We wish to reach the goal state efficiently , i.e with as minimum moves as possible. The heuristic function gives the minimum number of moves / distance between 2 sector tiles. The displacement of sector tile involves two parts : changing the level by one unit(using jump operation) and changing the quadrant by one unit(using rotate operation).
+We wish to reach the goal state efficiently , i.e with as minimum moves as possible. The heuristic function gives the minimum number of moves / distance between 2 sector tiles. The displacement of sector tile involves two parts : changing the level by one unit(using jump operation) and changing the quadrant by one unit(using rotate operation). The heuristic function under-estimates the cost to reach goal state and hence is guaranteed to give an optimal solution.
+
+**Results:** </br>
+Sequence of states obtained : </br>
+![image](https://user-images.githubusercontent.com/66625110/158945026-5086f404-f2c8-43a5-b6de-66925b50d2b9.png)   ![image](https://user-images.githubusercontent.com/66625110/158945070-a215c4f5-3f70-4f3f-a62d-9314b624dcc5.png) ![image](https://user-images.githubusercontent.com/66625110/158945180-b65c2611-7462-410d-9e94-66cb795f347b.png)
+
+
+
+
 
 ## A* algorithm
