@@ -28,6 +28,8 @@ int calShortestPath(int src , int dest , int adjMat[14][14] , int distMat[14][14
    visited[src]=0;
    return ans;
 }
+
+
 void a_star_algorithm(int src,int dest,int adjMat[14][14],int distMat[14][14],bool visited[14],int heuristic[14])
 {
     //A* search algorithm implementation 
@@ -46,9 +48,9 @@ void a_star_algorithm(int src,int dest,int adjMat[14][14],int distMat[14][14],bo
     while(!reachDest && open.empty() == false)
     {
         //sort(open.begin(),open.end());
-        open.sort([](auto const& a, auto const& b) {
+        open.sort([](const pair<int,int>& a, const pair<int,int>& b) {
            return a.first < b.first;
-       });
+        });
         pair < int , int > p2;
         p2 = open.front();
         open.pop_front();
@@ -153,16 +155,24 @@ void a_star_algorithm(int src,int dest,int adjMat[14][14],int distMat[14][14],bo
     else
     { 
         // displaying the path with the cost at each node in the optimal path 
-        
+        cout<<"Optimal path taken by Perseverance Rover to reach Jezero Crater: \n"<<endl;
+        int cost=0;
         for (auto currentPair : closed)
-       {
+        {
     
          pair<int, int> currentpair = currentPair;
-         cout << currentPair.first << ' ' <<
+         cost = currentPair.first;
+         if(currentpair.second==13){
+            cout << "ChkPt-" <<
             currentPair.second;
-    
-         cout << '\n';
-  }
+         }
+         else{
+         cout << "ChkPt-" <<
+            currentPair.second<<" ==> ";}
+        }
+        cout << '\n';
+        cout<<"Total cost of optimal path : "<<cost;
+
     }
     cout << endl;
     
@@ -234,8 +244,16 @@ int main()
         
 
     }   
+
     heuristic[dest]=0;
+    cout<<"Heuristic values at checkpoints : "<<endl;
+    for(int i=1;i<13;i++){
+      cout << "ChkPt-"<<i<<" : "<<heuristic[i]<<endl;
+    }
+    cout<<"========================================================"<<endl;
     a_star_algorithm(src,dest,adjMat,distMat,visited,heuristic);
+    cout<<"========================================================"<<endl;
+
     return 0;
 }         
     
