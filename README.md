@@ -53,3 +53,7 @@ Each checkpoint in aerial topography is represented as a node in a weighted grap
 **Heuristic evaluation function used :** </br>
 Rover wishes to reach the crater efficiently , i.e with as minimum cost as possible. The heuristic function h(n) for each node n gives the shortest path to move from node n to destination. The heuristic function under-estimates the cost to reach goal state and hence is guaranteed to give an optimal solution. The heuristic function in A* also takes into account the cost to reach a particular node from source g(n) . </br>
        Overall heuristic function f(n) = g(n) + h(n)
+
+**Resuts :** </br>
+![image](https://user-images.githubusercontent.com/66625110/158946855-b9580680-a37b-4350-9af5-47ebe06292a1.png)
+
