@@ -31,3 +31,16 @@ Possible solution: The solution for the plateau is to take big steps or very lit
 
 
 ## A* algorithm
+
+A* Search algorithm is one of the best and popular technique used in path-finding and graph traversals. Informally speaking, A* Search algorithms, unlike other traversal techniques, it has “brains”. What it means is that it is really a smart algorithm which separates it from the other conventional algorithms. This fact is cleared in detail in below sections. 
+And it is also worth mentioning that many games and web-based maps use this algorithm to find the shortest path very efficiently (approximation). 
+
+**Problem description:** 
+In 2021, a Mars rover, Perseverance, landed on the moon carrying along with it the first of its kind
+helicopter named Ingenuity. The goal of the rover was to travel to the center of a crater named Jezero
+with the help of Ingenuity. Since no help from Earth is available, Perseverance is solely dependent on
+Ingenuity’s inputs. Ingenuity flies across a couple of meters and gives an aerial topography as an input to
+Perseverance (FIG A) and based on these inputs the rover takes its next step. Design a communication
+channel between Ingenuity and Perseverance where the copter sends the expanded states from the
+initial position of the rover, the rover sends back the decision it takes on the expanded states and so on.
+
