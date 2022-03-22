@@ -57,5 +57,4 @@ Rover wishes to reach the crater efficiently , i.e with as minimum cost as possi
        Overall heuristic function f(n) = g(n) + h(n)
 
 **Resuts :** </br>
-![image](https://user-images.githubusercontent.com/66625110/158946855-b9580680-a37b-4350-9af5-47ebe06292a1.png)
-
+![image](https://user-images.githubusercontent.com/66625110/159468300-ccde6477-edd1-4cd0-a9df-fb746f1912d5.png)
