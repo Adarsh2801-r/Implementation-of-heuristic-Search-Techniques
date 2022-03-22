@@ -45,6 +45,8 @@ channel between Ingenuity and Perseverance where the copter sends the expanded s
 initial position of the rover, the rover sends back the decision it takes on the expanded states and so on.
 <p align="center">
   <img src="https://user-images.githubusercontent.com/66625110/158946135-9cfd3654-d613-4d24-b805-0b33442c10dd.png">
+  <img src="https://user-images.githubusercontent.com/66625110/159467947-448dddbc-80ed-40e0-bb86-e10e0a620f1e.png">
+
 </p>
 
 **State-space :** </br>
