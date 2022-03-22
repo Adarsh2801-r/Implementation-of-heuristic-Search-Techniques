@@ -28,7 +28,7 @@ struct State{
 
 int calculate_heuristic(map<int,State>&mp,map<int,State>&goal){
 	int sum=0;
-	for(int i=1;i<=9;i++){
+	for(int i=1;i<=12;i++){
 		int val=0;
 		int delta = abs(mp[i].lvl-goal[i].lvl);
 		if(mp[i].quadrant==1){
@@ -359,10 +359,8 @@ int main(){
 	goal[11]=State(5,5,2,4);
     
 
-    map<vector<vector<int>>,vector<vector<vector<int>>>>adj;
     map<int,State>curr = mp;
     int curr_val = calculate_heuristic(curr,goal);
-    map<map<int,State>, int> vis;
     std::map<int, State> prev;
       std::vector<vector<int>> tmp(6,vector<int>(6));
     tmp=dart_board;
@@ -412,9 +410,7 @@ int main(){
         		break;
         	}
         }
-    	if(curr==prev){
-    		break;
-    	}
+    	
     	prev=curr;
     	prev_val=curr_val;
 
